@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+vite-project/node_modules/
+
+# Environment variables - SECRET!
+server/.env
+client/.env
+
+# Build files
+dist/
+client/dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

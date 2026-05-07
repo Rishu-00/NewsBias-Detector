@@ -1,0 +1,153 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border2);
+}
+
+/* Top glow line by bias */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+
+.left::before   { background: linear-gradient(90deg, var(--left), transparent); }
+.center::before { background: linear-gradient(90deg, var(--center), transparent); }
+.right::before  { background: linear-gradient(90deg, var(--right), transparent); }
+.unknown::before { background: linear-gradient(90deg, var(--unknown), transparent); }
+
+.left:hover   { box-shadow: var(--glow-blue); }
+.center:hover { box-shadow: var(--glow-green); }
+.right:hover  { box-shadow: var(--glow-red); }
+
+/* Top row */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.source {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.biasBadge {
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.badge_left    { background: var(--left-bg);    color: var(--left); }
+.badge_center  { background: var(--center-bg);  color: var(--center); }
+.badge_right   { background: var(--right-bg);   color: var(--right); }
+.badge_unknown { background: var(--unknown-bg); color: var(--unknown); }
+
+/* Title */
+.titleLink { text-decoration: none; }
+
+.title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+.titleLink:hover .title { color: var(--blue); }
+
+/* Description */
+.desc {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+/* Negativity bar */
+.negRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.negLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  width: 58px;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.negBarWrap {
+  flex: 1;
+  height: 4px;
+  background: var(--bg3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.negBar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--amber), var(--red));
+  animation: barGrow 0.8s ease forwards;
+}
+
+.negPct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+  width: 28px;
+  text-align: right;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+}
+
+.sentBadge {
+  font-size: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 2px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.sent_positive { background: var(--green-dim);  color: var(--green); }
+.sent_negative { background: var(--right-bg);   color: var(--red); }
+.sent_neutral  { background: var(--unknown-bg); color: var(--unknown); }
