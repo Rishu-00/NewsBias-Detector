@@ -5,8 +5,14 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://news-bias-detector-nine.vercel.app'
+  ],
+  credentials: true
+}))
 
 // Routes
 app.use('/api/news', require('./routes/news'));
